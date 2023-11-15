@@ -1,0 +1,115 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/product.schema.json",
+    "title": "Connector",
+    "description": "A product from Reflex Platform solution",
+    "type": "object",
+    "properties": {
+        "Name": {
+            "description": "Name of the connector",
+            "type": "string"
+        },
+        "Type": {
+            "description": "Type of the connector",
+            "type": "string"
+        },
+        "Description": {
+            "description": "Description of the connector",
+            "type": "string"
+        },
+        "Version": {
+            "description": "Version of the connector",
+            "type": "string"
+        },
+        "RepoUrl": {
+            "description": "Repository url of the connector",
+            "type": "string"
+        },
+        "MainClassName": {
+            "description": "Main class name of the connector",
+            "type": "string"
+        },
+        "JarName": {
+            "description": "",
+            "type": "string"
+        },
+        "SetupJson": {
+            "description": "",
+            "type": "string"
+        },
+        "DistributionName": {
+            "description": "Distribution name of the connector",
+            "type": "string"
+        },
+        "MetadataJSONParameters": {
+            "description": "Parameters of the connector",
+            "type": "array",
+            "items": {
+                "name": {
+                    "description": "Name of the parameter",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "Label of the parameter",
+                    "type": "string"
+                },
+                "help_text": {
+                    "description": "Description of the parameter",
+                    "type": "string"
+                },
+                "mandatory": {
+                    "description": "Describe if the parameter is mandatory",
+                    "type": "boolean"
+                },
+                "group_id": {
+                    "description": "",
+                    "type": "string"
+                },
+                "order_id": {
+                    "description": "",
+                    "type": "number"
+                },
+                "^type": {
+                    "description": "Type of the parameter",
+                    "type": "string"
+                }
+            }
+        },
+        "Permissions": {
+            "description": "Permissions of the connector",
+            "type": "array",
+            "items": {
+                "Client": {
+                    "description": "Target of the permission",
+                    "type": "string"
+                },
+                "Scopes": {
+                    "description": "Scopes of the permission",
+                    "type": "array",
+                    "items": {
+                        "Service": {
+                            "description": "Service of the scope",
+                            "type": "string"
+                        },
+                        "Method": {
+                            "description": "Method of the scope",
+                            "type": "string"
+                        },
+                        "RscType": {
+                            "description": "Type of the scope (projet, orga...)",
+                            "type": "string"
+                        },
+                        "PlatformReserved": {
+                            "description": "Describe if the platform is reserved",
+                            "type": "boolean"
+                        },
+                        "TransientPermissions": {
+                            "description": "",
+                            "type": "array"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
