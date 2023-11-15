@@ -83,33 +83,39 @@
             "description": "Permissions of the connector",
             "type": "array",
             "items": {
-                "Client": {
-                    "description": "Target of the permission",
-                    "type": "string"
-                },
-                "Scopes": {
-                    "description": "Scopes of the permission",
-                    "type": "array",
-                    "items": {
-                        "Service": {
-                            "description": "Service of the scope",
-                            "type": "string"
-                        },
-                        "Method": {
-                            "description": "Method of the scope",
-                            "type": "string"
-                        },
-                        "RscType": {
-                            "description": "Type of the scope (projet, orga...)",
-                            "type": "string"
-                        },
-                        "PlatformReserved": {
-                            "description": "Describe if the platform is reserved",
-                            "type": "boolean"
-                        },
-                        "TransientPermissions": {
-                            "description": "",
-                            "type": "array"
+                "type": "object",
+                "properties": {
+                    "Client": {
+                        "description": "Target of the permission",
+                        "type": "string"
+                    },
+                    "Scopes": {
+                        "description": "Scopes of the permission",
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "Service": {
+                                    "description": "Service of the scope",
+                                    "type": "string"
+                                },
+                                "Method": {
+                                    "description": "Method of the scope",
+                                    "type": "string"
+                                },
+                                "RscType": {
+                                    "description": "Type of the scope (projet, orga...)",
+                                    "type": "string"
+                                },
+                                "PlatformReserved": {
+                                    "description": "Describe if the platform is reserved",
+                                    "type": "boolean"
+                                },
+                                "TransientPermissions": {
+                                    "description": "",
+                                    "type": "array"
+                                }     
+                            }
                         }
                     }
                 }

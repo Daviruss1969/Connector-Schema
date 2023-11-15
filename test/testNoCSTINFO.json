@@ -43,7 +43,7 @@
       "mandatory": false,
       "group_id": "ReflexPlatform",
       "order_id": 14,
-      "type": "BOOLEANN"
+      "type": "BOOLEAN"
     },
     {
       "name": "itemRXFtoRPFTLFile",
