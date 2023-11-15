@@ -45,33 +45,37 @@
             "description": "Parameters of the connector",
             "type": "array",
             "items": {
-                "name": {
-                    "description": "Name of the parameter",
-                    "type": "string"
-                },
-                "label": {
-                    "description": "Label of the parameter",
-                    "type": "string"
-                },
-                "help_text": {
-                    "description": "Description of the parameter",
-                    "type": "string"
-                },
-                "mandatory": {
-                    "description": "Describe if the parameter is mandatory",
-                    "type": "boolean"
-                },
-                "group_id": {
-                    "description": "",
-                    "type": "string"
-                },
-                "order_id": {
-                    "description": "",
-                    "type": "number"
-                },
-                "^type": {
-                    "description": "Type of the parameter",
-                    "type": "string"
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "Name of the parameter",
+                        "type": "string"
+                    },
+                    "label": {
+                        "description": "Label of the parameter",
+                        "type": "string"
+                    },
+                    "help_text": {
+                        "description": "Description of the parameter",
+                        "type": "string"
+                    },
+                    "mandatory": {
+                        "description": "Describe if the parameter is mandatory",
+                        "type": "boolean"
+                    },
+                    "group_id": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "order_id": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "type": {
+                        "description": "Type of the parameter",
+                        "type": "string",
+                        "format": "type-format"
+                    }
                 }
             }
         },

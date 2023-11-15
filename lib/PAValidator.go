@@ -1,28 +1,34 @@
 package lib
 
 import (
-	"fmt"
+	"PAValidator/lib/errors"
+	"PAValidator/lib/formats"
+	"PAValidator/lib/types"
 
-	"github.com/xeipuuv/gojsonschema"
+	"github.com/santhosh-tekuri/jsonschema/v5"
 )
 
-func Validate(documentContent, schemaContent string) bool {
-	schemaLoader := gojsonschema.NewStringLoader(schemaContent)
-	documentLoader := gojsonschema.NewStringLoader(documentContent)
+func Validate(schemaPath string, data interface{}) bool {
 
-	result, err := gojsonschema.Validate(schemaLoader, documentLoader)
+	c := jsonschema.NewCompiler()
+	c.AssertFormat = true
+
+	c.Formats["type-format"] = formats.TypeFormat
+
+	schema, err := c.Compile(schemaPath)
 	if err != nil {
-		panic(err.Error())
+		errors.NewError(types.ERROR_TYPE_LEXICAL, "Schema file not in json format").Throw()
 	}
 
-	if result.Valid() {
-		fmt.Printf("The document is valid\n")
-	} else {
-		fmt.Printf("The document is not valid. see errors :\n")
-		for _, desc := range result.Errors() {
-			fmt.Printf("- %s\n", desc)
+	if err := schema.Validate(data); err != nil {
+		if verr, ok := err.(*jsonschema.ValidationError); ok {
+			var msg string = ""
+			for i := 0; i < len(verr.BasicOutput().Errors); i++ {
+				msg = msg + verr.BasicOutput().Errors[i].Error + "\n"
+			}
+			errors.NewError(types.ERROR_TYPE_SYNTAX, msg).Throw()
 		}
 	}
 
-	return result.Valid()
+	return true
 }
