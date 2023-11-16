@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://example.com/product.schema.json",
+    "$id": "https://gitlab.hardis-group.com/r-d-technique/reflex-platform/deployment/platform-setup/-/raw/develop/100.upgrade-release/connectors/connector-RFX-latest.json?ref_type=heads",
     "title": "Connector",
     "description": "A product from Reflex Platform solution",
     "type": "object",
@@ -104,7 +104,7 @@
                                     "type": "string"
                                 },
                                 "RscType": {
-                                    "description": "Type of the scope (projet, orga...)",
+                                    "description": "Type of the scope (projet, orga, connection...)",
                                     "type": "string"
                                 },
                                 "PlatformReserved": {

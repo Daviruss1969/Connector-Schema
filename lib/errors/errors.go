@@ -3,8 +3,6 @@ package errors
 import (
 	"PAValidator/lib/types"
 	"fmt"
-
-	"github.com/fatih/color"
 )
 
 type Error struct {
@@ -25,7 +23,7 @@ func (e *Error) Error() string {
 }
 
 func (e *Error) Print() {
-	fmt.Printf("%s: %s\n", color.New(color.FgRed, color.Bold).Sprintf("%s", e.Type.String()), e.Message)
+	fmt.Printf("%s: %s\n", e.Type.String(), e.Message)
 }
 
 func (e *Error) Throw() {
