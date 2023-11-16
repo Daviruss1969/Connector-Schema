@@ -156,6 +156,24 @@ func TestInvali07invalidTypeFormat(t *testing.T) {
 	}
 }
 
+func TestInvali08invalidMinimumOID(t *testing.T) {
+	var inputPath string = "test/invalid/08-invalidMinimumOID.json"
+
+	data, err := readInputFile(inputPath)
+	if err != nil {
+		t.Fail()
+	}
+
+	libErr := lib.Validate(schemaPath, data)
+	if libErr == nil {
+		t.Fail()
+	} else {
+		if libErr.Type != types.ERROR_TYPE_SYNTAX {
+			t.Fail()
+		}
+	}
+}
+
 func TestValid00validRFXnoCSTINFO(t *testing.T) {
 	var inputPath string = "test/valid/00-validRFX-NoCSTINFO.json"
 

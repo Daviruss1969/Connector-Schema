@@ -69,12 +69,17 @@
                     },
                     "order_id": {
                         "description": "",
-                        "type": "number"
+                        "type": "number",
+                        "exclusiveMinimum": 0
                     },
                     "type": {
                         "description": "Type of the parameter",
                         "type": "string",
                         "format": "type-format"
+                    },
+                    "custom_info": {
+                        "description": "More informations",
+                        "type": "object"
                     }
                 },
                 "required": ["name", "label", "help_text", "mandatory", "group_id", "order_id", "type"]
