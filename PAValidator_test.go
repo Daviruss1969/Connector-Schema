@@ -155,3 +155,59 @@ func TestInvali07invalidTypeFormat(t *testing.T) {
 		}
 	}
 }
+
+func TestValid00validRFXnoCSTINFO(t *testing.T) {
+	var inputPath string = "test/valid/00-validRFX-NoCSTINFO.json"
+
+	data, err := readInputFile(inputPath)
+	if err != nil {
+		t.Fail()
+	}
+
+	libErr := lib.Validate(schemaPath, data)
+	if libErr != nil {
+		t.Fail()
+	}
+}
+
+func TestValid01validTDInoCSTINFO(t *testing.T) {
+	var inputPath string = "test/valid/01-validTDI-NoCSTINFO.json"
+
+	data, err := readInputFile(inputPath)
+	if err != nil {
+		t.Fail()
+	}
+
+	libErr := lib.Validate(schemaPath, data)
+	if libErr != nil {
+		t.Fail()
+	}
+}
+
+func TestValid02validRFX(t *testing.T) {
+	var inputPath string = "test/valid/02-validRFX.json"
+
+	data, err := readInputFile(inputPath)
+	if err != nil {
+		t.Fail()
+	}
+
+	libErr := lib.Validate(schemaPath, data)
+	if libErr != nil {
+		t.Fail()
+	}
+}
+
+func TestValid03validTDI(t *testing.T) {
+	var inputPath string = "test/valid/03-validTDI.json"
+
+	data, err := readInputFile(inputPath)
+	if err != nil {
+		t.Fail()
+	}
+
+	libErr := lib.Validate(schemaPath, data)
+	if libErr != nil {
+		t.Fail()
+	}
+}
