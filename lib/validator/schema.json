@@ -76,7 +76,8 @@
                         "type": "string",
                         "format": "type-format"
                     }
-                }
+                },
+                "required": ["name", "label", "help_text", "mandatory", "group_id", "order_id", "type"]
             }
         },
         "Permissions": {
@@ -115,11 +116,14 @@
                                     "description": "",
                                     "type": "array"
                                 }     
-                            }
+                            },
+                            "required": ["Service", "Method", "RscType", "PlatformReserved", "TransientPermissions"]
                         }
                     }
-                }
+                },
+                "required": ["Client", "Scopes"]
             }
         }
-    }
+    },
+    "required": [ "Name", "Type", "Description", "Version", "RepoUrl", "MainClassName", "JarName", "SetupJson", "DistributionName", "MetadataJSONParameters"]
 }

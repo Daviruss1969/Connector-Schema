@@ -29,5 +29,8 @@ func main() {
 		errors.NewError(types.ERROR_TYPE_LEXICAL, "Input file not in json format").Throw()
 	}
 
-	lib.Validate("lib/validator/schema.json", v)
+	libErr := lib.Validate("lib/validator/schema.json", v)
+	if libErr != nil {
+		libErr.Throw()
+	}
 }

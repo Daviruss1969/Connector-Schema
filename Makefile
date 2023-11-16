@@ -10,3 +10,6 @@ $(EXECUTABLE_NAME): main.go lib/*
 
 clean:
 	rm $(EXECUTABLE_NAME)
+
+test: all
+	go test -v

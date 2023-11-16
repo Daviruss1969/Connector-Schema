@@ -8,8 +8,7 @@ import (
 	"github.com/santhosh-tekuri/jsonschema/v5"
 )
 
-func Validate(schemaPath string, data interface{}) bool {
-
+func Validate(schemaPath string, data interface{}) *errors.Error {
 	c := jsonschema.NewCompiler()
 	c.AssertFormat = true
 
@@ -19,19 +18,19 @@ func Validate(schemaPath string, data interface{}) bool {
 	// create schema
 	schema, err := c.Compile(schemaPath)
 	if err != nil {
-		errors.NewError(types.ERROR_TYPE_LEXICAL, "Schema file not in json format").Throw()
+		return errors.NewError(types.ERROR_TYPE_LEXICAL, "Schema file not in json format")
 	}
 
 	// validate input file with the schema
 	if err := schema.Validate(data); err != nil {
 		if verr, ok := err.(*jsonschema.ValidationError); ok {
-			var msg string = ""
+			var msg string = "\n"
 			for i := 0; i < len(verr.BasicOutput().Errors); i++ {
 				msg = msg + verr.BasicOutput().Errors[i].KeywordLocation + " " + verr.BasicOutput().Errors[i].Error + "\n"
 			}
-			errors.NewError(types.ERROR_TYPE_SYNTAX, msg).Throw()
+			return errors.NewError(types.ERROR_TYPE_SYNTAX, msg)
 		}
 	}
 
-	return true
+	return nil
 }
