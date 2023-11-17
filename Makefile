@@ -11,6 +11,7 @@ $(EXECUTABLE_NAME): main.go lib/*
 clean:
 	rm $(EXECUTABLE_NAME)
 	rm test/c.out
+	rm test/cover.html
 
 test: all
 	go test -v -cover PAValidator/lib
