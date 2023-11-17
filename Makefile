@@ -14,3 +14,7 @@ clean:
 
 test: all
 	go test -v -cover PAValidator/lib
+
+coverage: all
+	go test -v -coverprofile test/c.out PAValidator/lib
+	go tool cover -html test/c.out -o test/cover.html
