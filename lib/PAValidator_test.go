@@ -1,16 +1,16 @@
-package main
+package lib
 
 import (
-	"PAValidator/lib"
 	"PAValidator/lib/errors"
 	"PAValidator/lib/types"
 	"encoding/json"
+	"fmt"
 	"io"
 	"os"
 	"testing"
 )
 
-var schemaPath string = "lib/validator/schema.json"
+var schemaPath string = "validator/schema.json"
 
 func readInputFile(path string) (interface{}, *errors.Error) {
 	inputF, err := os.Open(path)
@@ -31,7 +31,7 @@ func readInputFile(path string) (interface{}, *errors.Error) {
 }
 
 func TestInvalid00emptyFile(t *testing.T) {
-	var inputPath string = "test/invalid/00-emptyFile.json"
+	var inputPath string = "../test/invalid/00-emptyFile.json"
 
 	_, err := readInputFile(inputPath)
 	if err == nil {
@@ -40,7 +40,7 @@ func TestInvalid00emptyFile(t *testing.T) {
 }
 
 func TestInvalid01badjson(t *testing.T) {
-	var inputPath string = "test/invalid/00-badjson"
+	var inputPath string = "../test/invalid/00-badjson"
 
 	_, err := readInputFile(inputPath)
 	if err == nil {
@@ -49,14 +49,15 @@ func TestInvalid01badjson(t *testing.T) {
 }
 
 func TestInvalid02emptyJSON(t *testing.T) {
-	var inputPath string = "test/invalid/02-emptyJson.json"
+	var inputPath string = "../test/invalid/02-emptyJson.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
+		fmt.Println("ici")
 		t.Fail()
 	}
 
-	libErr := lib.Validate(schemaPath, data)
+	libErr := Validate(schemaPath, data)
 	if libErr == nil {
 		t.Fail()
 	} else {
@@ -67,14 +68,14 @@ func TestInvalid02emptyJSON(t *testing.T) {
 }
 
 func TestInvalid03missingTopProp(t *testing.T) {
-	var inputPath string = "test/invalid/03-missingTopProp.json"
+	var inputPath string = "../test/invalid/03-missingTopProp.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
 		t.Fail()
 	}
 
-	libErr := lib.Validate(schemaPath, data)
+	libErr := Validate(schemaPath, data)
 	if libErr == nil {
 		t.Fail()
 	} else {
@@ -85,14 +86,14 @@ func TestInvalid03missingTopProp(t *testing.T) {
 }
 
 func TestInvalid04wrongTypeTopProp(t *testing.T) {
-	var inputPath string = "test/invalid/04-wrongTypeTopProp.json"
+	var inputPath string = "../test/invalid/04-wrongTypeTopProp.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
 		t.Fail()
 	}
 
-	libErr := lib.Validate(schemaPath, data)
+	libErr := Validate(schemaPath, data)
 	if libErr == nil {
 		t.Fail()
 	} else {
@@ -103,14 +104,14 @@ func TestInvalid04wrongTypeTopProp(t *testing.T) {
 }
 
 func TestInvalid05missingNestedProp(t *testing.T) {
-	var inputPath string = "test/invalid/05-missingNestedProp.json"
+	var inputPath string = "../test/invalid/05-missingNestedProp.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
 		t.Fail()
 	}
 
-	libErr := lib.Validate(schemaPath, data)
+	libErr := Validate(schemaPath, data)
 	if libErr == nil {
 		t.Fail()
 	} else {
@@ -121,14 +122,14 @@ func TestInvalid05missingNestedProp(t *testing.T) {
 }
 
 func TestInvalid06wrongTypeNestedProp(t *testing.T) {
-	var inputPath string = "test/invalid/06-wrongTypeNestedProp.json"
+	var inputPath string = "../test/invalid/06-wrongTypeNestedProp.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
 		t.Fail()
 	}
 
-	libErr := lib.Validate(schemaPath, data)
+	libErr := Validate(schemaPath, data)
 	if libErr == nil {
 		t.Fail()
 	} else {
@@ -139,14 +140,14 @@ func TestInvalid06wrongTypeNestedProp(t *testing.T) {
 }
 
 func TestInvalid07invalidTypeFormat(t *testing.T) {
-	var inputPath string = "test/invalid/07-invalidTypeFormat.json"
+	var inputPath string = "../test/invalid/07-invalidTypeFormat.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
 		t.Fail()
 	}
 
-	libErr := lib.Validate(schemaPath, data)
+	libErr := Validate(schemaPath, data)
 	if libErr == nil {
 		t.Fail()
 	} else {
@@ -157,14 +158,14 @@ func TestInvalid07invalidTypeFormat(t *testing.T) {
 }
 
 func TestInvalid08invalidMinimumOID(t *testing.T) {
-	var inputPath string = "test/invalid/08-invalidMinimumOID.json"
+	var inputPath string = "../test/invalid/08-invalidMinimumOID.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
 		t.Fail()
 	}
 
-	libErr := lib.Validate(schemaPath, data)
+	libErr := Validate(schemaPath, data)
 	if libErr == nil {
 		t.Fail()
 	} else {
@@ -174,57 +175,86 @@ func TestInvalid08invalidMinimumOID(t *testing.T) {
 	}
 }
 
-func TestValid00validRFXnoCSTINFO(t *testing.T) {
-	var inputPath string = "test/valid/00-validRFX-NoCSTINFO.json"
+func TestInvalid09invalidSchemaPath(t *testing.T) {
+	var inputPath string = "../test/invalid/09-invalidSchemaPath.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
 		t.Fail()
 	}
 
-	libErr := lib.Validate(schemaPath, data)
+	libErr := Validate("invalid/schemaPath", data)
+	if libErr == nil {
+		t.Fail()
+	} else {
+		if libErr.Type != types.ERROR_TYPE_SCHEMA {
+			t.Fail()
+		}
+	}
+}
+
+func TestInvalid10invalidSchemaFile(t *testing.T) {
+	libErr := Validate("../test/invalid/10-invalidSchemaFile.jsd", nil)
+	if libErr == nil {
+		t.Fail()
+	} else {
+		if libErr.Type != types.ERROR_TYPE_SCHEMA {
+			t.Fail()
+		}
+	}
+}
+
+func TestValid00validRFXnoCSTINFO(t *testing.T) {
+	var inputPath string = "../test/valid/00-validRFX-NoCSTINFO.json"
+
+	data, err := readInputFile(inputPath)
+	if err != nil {
+		t.Fail()
+	}
+
+	libErr := Validate(schemaPath, data)
 	if libErr != nil {
 		t.Fail()
 	}
 }
 
 func TestValid01validTDInoCSTINFO(t *testing.T) {
-	var inputPath string = "test/valid/01-validTDI-NoCSTINFO.json"
+	var inputPath string = "../test/valid/01-validTDI-NoCSTINFO.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
 		t.Fail()
 	}
 
-	libErr := lib.Validate(schemaPath, data)
+	libErr := Validate(schemaPath, data)
 	if libErr != nil {
 		t.Fail()
 	}
 }
 
 func TestValid02validRFX(t *testing.T) {
-	var inputPath string = "test/valid/02-validRFX.json"
+	var inputPath string = "../test/valid/02-validRFX.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
 		t.Fail()
 	}
 
-	libErr := lib.Validate(schemaPath, data)
+	libErr := Validate(schemaPath, data)
 	if libErr != nil {
 		t.Fail()
 	}
 }
 
 func TestValid03validTDI(t *testing.T) {
-	var inputPath string = "test/valid/03-validTDI.json"
+	var inputPath string = "../test/valid/03-validTDI.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
 		t.Fail()
 	}
 
-	libErr := lib.Validate(schemaPath, data)
+	libErr := Validate(schemaPath, data)
 	if libErr != nil {
 		t.Fail()
 	}

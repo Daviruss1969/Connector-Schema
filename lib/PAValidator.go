@@ -18,7 +18,9 @@ func Validate(schemaPath string, data interface{}) *errors.Error {
 	// create schema
 	schema, err := c.Compile(schemaPath)
 	if err != nil {
-		return errors.NewError(types.ERROR_TYPE_LEXICAL, "Schema file not in json format")
+		if serr, ok := err.(*jsonschema.SchemaError); ok {
+			return errors.NewError(types.ERROR_TYPE_SCHEMA, serr.Error())
+		}
 	}
 
 	// validate input file with the schema

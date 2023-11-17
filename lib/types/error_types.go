@@ -7,6 +7,7 @@ const (
 	ERROR_TYPE_PATH
 	ERROR_TYPE_LEXICAL
 	ERROR_TYPE_SYNTAX
+	ERROR_TYPE_SCHEMA
 )
 
 func (t ErrorType) String() string {
@@ -19,6 +20,8 @@ func (t ErrorType) String() string {
 		return "LEXICAL ERROR"
 	case ERROR_TYPE_SYNTAX:
 		return "SYNTAX ERROR"
+	case ERROR_TYPE_SCHEMA:
+		return "SCHEMA ERROR"
 	default:
 		return "UNKNOWN"
 	}
