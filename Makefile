@@ -2,7 +2,7 @@ EXECUTABLE_NAME=PAValidator
 
 GC = go build
 GFLAGS = -o $(EXECUTABLE_NAME)
-LIBMOD = PAValidator/lib
+LIBMOD = $(EXECUTABLE_NAME)/lib
 TESTDIR = test
 
 all: $(EXECUTABLE_NAME)

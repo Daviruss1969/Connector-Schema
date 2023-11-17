@@ -7,7 +7,6 @@ import (
 
 type Error struct {
 	Type    types.ErrorType
-	Line    int
 	Message string
 }
 
