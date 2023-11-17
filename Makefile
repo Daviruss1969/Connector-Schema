@@ -10,6 +10,7 @@ $(EXECUTABLE_NAME): main.go lib/*
 
 clean:
 	rm $(EXECUTABLE_NAME)
+	rm test/c.out
 
 test: all
-	go test -v
+	go test -v -coverprofile test/c.out PAValidator/lib
