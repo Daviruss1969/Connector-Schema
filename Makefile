@@ -2,6 +2,8 @@ EXECUTABLE_NAME=PAValidator
 
 GC = go build
 GFLAGS = -o $(EXECUTABLE_NAME)
+LIBMOD = PAValidator/lib
+TESTDIR = test
 
 all: $(EXECUTABLE_NAME)
 
@@ -10,12 +12,12 @@ $(EXECUTABLE_NAME): main.go lib/*
 
 clean:
 	rm $(EXECUTABLE_NAME)
-	rm test/c.out
-	rm test/cover.html
+	rm $(TESTDIR)/c.out
+	rm $(TESTDIR)/cover.html
 
 test: all
-	go test -v -cover PAValidator/lib
+	go test -v -cover $(LIBMOD)
 
 coverage: all
-	go test -v -coverprofile test/c.out PAValidator/lib
-	go tool cover -html test/c.out -o test/cover.html
+	go test -v -coverprofile $(TESTDIR)/c.out $(LIBMOD)
+	go tool cover -html $(TESTDIR)/c.out -o $(TESTDIR)/cover.html
