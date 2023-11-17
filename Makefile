@@ -13,4 +13,4 @@ clean:
 	rm test/c.out
 
 test: all
-	go test -v -coverprofile test/c.out PAValidator/lib
+	go test -v -cover PAValidator/lib
