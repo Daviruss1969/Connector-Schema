@@ -138,7 +138,7 @@ func TestInvalid06wrongTypeNestedProp(t *testing.T) {
 	}
 }
 
-func TestInvali07invalidTypeFormat(t *testing.T) {
+func TestInvalid07invalidTypeFormat(t *testing.T) {
 	var inputPath string = "test/invalid/07-invalidTypeFormat.json"
 
 	data, err := readInputFile(inputPath)
@@ -156,7 +156,7 @@ func TestInvali07invalidTypeFormat(t *testing.T) {
 	}
 }
 
-func TestInvali08invalidMinimumOID(t *testing.T) {
+func TestInvalid08invalidMinimumOID(t *testing.T) {
 	var inputPath string = "test/invalid/08-invalidMinimumOID.json"
 
 	data, err := readInputFile(inputPath)

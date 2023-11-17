@@ -78,7 +78,7 @@
                         "format": "type-format"
                     },
                     "custom_info": {
-                        "description": "More informations",
+                        "description": "More informations about the parameter",
                         "type": "object"
                     }
                 },
