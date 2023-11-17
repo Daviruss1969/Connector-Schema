@@ -4,7 +4,7 @@ type ParamType int32
 
 const (
 	PARAM_TYPE_UNKNOWN ParamType = iota
-	PARAM_TYPE_INT
+	PARAM_TYPE_URL
 	PARAM_TYPE_STRING
 	PARAM_TYPE_BOOL
 	PARAM_TYPE_FILE
@@ -16,8 +16,8 @@ func (t ParamType) String() string {
 	switch t {
 	case PARAM_TYPE_UNKNOWN:
 		return "UNKNOWN"
-	case PARAM_TYPE_INT:
-		return "INT"
+	case PARAM_TYPE_URL:
+		return "URL"
 	case PARAM_TYPE_STRING:
 		return "STRING"
 	case PARAM_TYPE_BOOL:
@@ -35,8 +35,8 @@ func (t ParamType) String() string {
 
 func ToParamType(t string) ParamType {
 	switch t {
-	case "INT", "INTEGER":
-		return PARAM_TYPE_INT
+	case "URL":
+		return PARAM_TYPE_URL
 	case "STRING":
 		return PARAM_TYPE_STRING
 	case "BOOL", "BOOLEAN":
