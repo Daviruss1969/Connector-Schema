@@ -204,6 +204,60 @@ func TestInvalid10invalidSchemaFile(t *testing.T) {
 	}
 }
 
+func TestInvalid11invalidCSTINFO(t *testing.T) {
+	var inputPath string = "../test/invalid/11-invalidCSTINFO.json"
+
+	data, err := readInputFile(inputPath)
+	if err != nil {
+		t.Fail()
+	}
+
+	libErr := Validate(schemaPath, data)
+	if libErr == nil {
+		t.Fail()
+	} else {
+		if libErr.Type != types.ERROR_TYPE_SYNTAX {
+			t.Fail()
+		}
+	}
+}
+
+func TestInvalid12invalidCSTINFOformat(t *testing.T) {
+	var inputPath string = "../test/invalid/12-invalidCSTINFOformat.json"
+
+	data, err := readInputFile(inputPath)
+	if err != nil {
+		t.Fail()
+	}
+
+	libErr := Validate(schemaPath, data)
+	if libErr == nil {
+		t.Fail()
+	} else {
+		if libErr.Type != types.ERROR_TYPE_SYNTAX {
+			t.Fail()
+		}
+	}
+}
+
+func TestInvalid13invalidCSTINFOenum(t *testing.T) {
+	var inputPath string = "../test/invalid/13-invalidCSTINFOenum.json"
+
+	data, err := readInputFile(inputPath)
+	if err != nil {
+		t.Fail()
+	}
+
+	libErr := Validate(schemaPath, data)
+	if libErr == nil {
+		t.Fail()
+	} else {
+		if libErr.Type != types.ERROR_TYPE_SYNTAX {
+			t.Fail()
+		}
+	}
+}
+
 func TestValid00validRFXnoCSTINFO(t *testing.T) {
 	var inputPath string = "../test/valid/00-validRFX-NoCSTINFO.json"
 

@@ -79,7 +79,28 @@
                     },
                     "custom_info": {
                         "description": "More informations about the parameter",
-                        "type": "object"
+                        "type": "object",
+                        "properties": {
+                            "$suffix": {
+                                "description": "The extention of the file for FILE format",
+                                "type": "string"
+                            },
+                            "$regex": {
+                                "description": "A regex to match for string format",
+                                "type": "string",
+                                "format": "regex"
+                            },
+                            "$default_value": {
+                                "description": "A default value for BOOLEAN or SET formats",
+                                "type": "string",
+                                "enum": ["true", "false", "all"]
+                            },
+                            "$settype": {
+                                "description": "The type of the set (multiple or single)",
+                                "type": "string",
+                                "enum": ["multiple", "single"]
+                            }
+                        }
                     }
                 },
                 "required": ["name", "label", "help_text", "mandatory", "group_id", "order_id", "type"]
