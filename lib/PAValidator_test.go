@@ -31,7 +31,7 @@ func readInputFile(path string) (interface{}, *errors.Error) {
 }
 
 func TestInvalid00emptyFile(t *testing.T) {
-	var inputPath string = "../test/invalid/00-emptyFile.json"
+	var inputPath string = "test/invalid/00-emptyFile.json"
 
 	_, err := readInputFile(inputPath)
 	if err == nil {
@@ -40,7 +40,7 @@ func TestInvalid00emptyFile(t *testing.T) {
 }
 
 func TestInvalid01badjson(t *testing.T) {
-	var inputPath string = "../test/invalid/00-badjson"
+	var inputPath string = "test/invalid/00-badjson"
 
 	_, err := readInputFile(inputPath)
 	if err == nil {
@@ -49,7 +49,7 @@ func TestInvalid01badjson(t *testing.T) {
 }
 
 func TestInvalid02emptyJSON(t *testing.T) {
-	var inputPath string = "../test/invalid/02-emptyJson.json"
+	var inputPath string = "test/invalid/02-emptyJson.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
@@ -68,7 +68,7 @@ func TestInvalid02emptyJSON(t *testing.T) {
 }
 
 func TestInvalid03missingTopProp(t *testing.T) {
-	var inputPath string = "../test/invalid/03-missingTopProp.json"
+	var inputPath string = "test/invalid/03-missingTopProp.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
@@ -86,7 +86,7 @@ func TestInvalid03missingTopProp(t *testing.T) {
 }
 
 func TestInvalid04wrongTypeTopProp(t *testing.T) {
-	var inputPath string = "../test/invalid/04-wrongTypeTopProp.json"
+	var inputPath string = "test/invalid/04-wrongTypeTopProp.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
@@ -104,7 +104,7 @@ func TestInvalid04wrongTypeTopProp(t *testing.T) {
 }
 
 func TestInvalid05missingNestedProp(t *testing.T) {
-	var inputPath string = "../test/invalid/05-missingNestedProp.json"
+	var inputPath string = "test/invalid/05-missingNestedProp.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
@@ -122,7 +122,7 @@ func TestInvalid05missingNestedProp(t *testing.T) {
 }
 
 func TestInvalid06wrongTypeNestedProp(t *testing.T) {
-	var inputPath string = "../test/invalid/06-wrongTypeNestedProp.json"
+	var inputPath string = "test/invalid/06-wrongTypeNestedProp.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
@@ -140,7 +140,7 @@ func TestInvalid06wrongTypeNestedProp(t *testing.T) {
 }
 
 func TestInvalid07invalidTypeFormat(t *testing.T) {
-	var inputPath string = "../test/invalid/07-invalidTypeFormat.json"
+	var inputPath string = "test/invalid/07-invalidTypeFormat.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
@@ -158,7 +158,7 @@ func TestInvalid07invalidTypeFormat(t *testing.T) {
 }
 
 func TestInvalid08invalidMinimumOID(t *testing.T) {
-	var inputPath string = "../test/invalid/08-invalidMinimumOID.json"
+	var inputPath string = "test/invalid/08-invalidMinimumOID.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
@@ -176,7 +176,7 @@ func TestInvalid08invalidMinimumOID(t *testing.T) {
 }
 
 func TestInvalid09invalidSchemaPath(t *testing.T) {
-	var inputPath string = "../test/invalid/09-invalidSchemaPath.json"
+	var inputPath string = "test/invalid/09-invalidSchemaPath.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
@@ -194,7 +194,7 @@ func TestInvalid09invalidSchemaPath(t *testing.T) {
 }
 
 func TestInvalid10invalidSchemaFile(t *testing.T) {
-	libErr := Validate("../test/invalid/10-invalidSchemaFile.jsd", nil)
+	libErr := Validate("test/invalid/10-invalidSchemaFile.jsd", nil)
 	if libErr == nil {
 		t.Fail()
 	} else {
@@ -205,7 +205,7 @@ func TestInvalid10invalidSchemaFile(t *testing.T) {
 }
 
 func TestInvalid11invalidCSTINFO(t *testing.T) {
-	var inputPath string = "../test/invalid/11-invalidCSTINFO.json"
+	var inputPath string = "test/invalid/11-invalidCSTINFO.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
@@ -223,7 +223,7 @@ func TestInvalid11invalidCSTINFO(t *testing.T) {
 }
 
 func TestInvalid12invalidCSTINFOformat(t *testing.T) {
-	var inputPath string = "../test/invalid/12-invalidCSTINFOformat.json"
+	var inputPath string = "test/invalid/12-invalidCSTINFOformat.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
@@ -241,7 +241,7 @@ func TestInvalid12invalidCSTINFOformat(t *testing.T) {
 }
 
 func TestInvalid13invalidCSTINFOenum(t *testing.T) {
-	var inputPath string = "../test/invalid/13-invalidCSTINFOenum.json"
+	var inputPath string = "test/invalid/13-invalidCSTINFOenum.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
@@ -259,7 +259,7 @@ func TestInvalid13invalidCSTINFOenum(t *testing.T) {
 }
 
 func TestValid00validRFXnoCSTINFO(t *testing.T) {
-	var inputPath string = "../test/valid/00-validRFX-NoCSTINFO.json"
+	var inputPath string = "test/valid/00-validRFX-NoCSTINFO.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
@@ -273,7 +273,7 @@ func TestValid00validRFXnoCSTINFO(t *testing.T) {
 }
 
 func TestValid01validTDInoCSTINFO(t *testing.T) {
-	var inputPath string = "../test/valid/01-validTDI-NoCSTINFO.json"
+	var inputPath string = "test/valid/01-validTDI-NoCSTINFO.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
@@ -287,7 +287,7 @@ func TestValid01validTDInoCSTINFO(t *testing.T) {
 }
 
 func TestValid02validRFX(t *testing.T) {
-	var inputPath string = "../test/valid/02-validRFX.json"
+	var inputPath string = "test/valid/02-validRFX.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
@@ -301,7 +301,7 @@ func TestValid02validRFX(t *testing.T) {
 }
 
 func TestValid03validTDI(t *testing.T) {
-	var inputPath string = "../test/valid/03-validTDI.json"
+	var inputPath string = "test/valid/03-validTDI.json"
 
 	data, err := readInputFile(inputPath)
 	if err != nil {
