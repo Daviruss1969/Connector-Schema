@@ -203,8 +203,19 @@ Type this command to be sure the installation is correct
    ```sh
    go build -o csch.exe
    ```
-4. Up to you to adding it to your $PATH in order to call it everywhere
-
+4. Up to you to adding it to your $PATH if you want to call it everywhere
+    1. Linux :
+         1. Add the following line at the end of your ~/.bashrc
+        ```sh
+        export PATH="/home/user/yourPATH/ConnectorSchema:$PATH"
+        ```
+        1. run the following command 
+        ```sh
+        . ~/.bashrc
+        ```
+     2. Windows :
+        
+        Follow this tutorial https://stackoverflow.com/questions/44272416/how-to-add-a-folder-to-path-environment-variable-in-windows-10-with-screensho
 
 <!-- USAGE EXAMPLES -->
 ## Usage
