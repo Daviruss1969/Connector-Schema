@@ -179,10 +179,6 @@ Below the schema that validate the input :
 
 <!-- GETTING STARTED -->
 ## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
 ### Prerequisites
 
 To use the Connector Schema, you need to be able to compile go file. If you can't, check this link to get started : [https://go.dev/doc/install](https://go.dev/doc/install)
