@@ -15,6 +15,11 @@ func main() {
 	inputFile := flag.String("i", "", "Input file")
 	flag.Parse()
 
+	// handle flags error
+	if *inputFile == "" {
+		errors.NewError(types.ERROR_TYPE_FLAGS, "Flag -i is needed to test an input file").Throw()
+	}
+
 	// read input file
 	inputF, err := os.Open(*inputFile)
 	if err != nil {
