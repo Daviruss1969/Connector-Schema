@@ -28,13 +28,25 @@ func main() {
 	inputS, _ := io.ReadAll(inputF)
 	defer inputF.Close()
 
-	// parse input file
-	var v interface{}
-	if err := json.Unmarshal([]byte(inputS), &v); err != nil {
+	// parse the json
+	var inputConnector map[string]interface{}
+	if err := json.Unmarshal([]byte(inputS), &inputConnector); err != nil {
 		errors.NewError(types.ERROR_TYPE_LEXICAL, "Input file not in json format").Throw()
 	}
 
-	libErr := lib.Validate("lib/validator/schema.json", v)
+	// parse the MetadataJSONParameters field, if it's already parsed, it will just pass this function
+	var mdjsonparam interface{}
+	if val, ok := inputConnector["MetadataJSONParameters"]; ok {
+		if strval, ok := val.(string); ok {
+			if err := json.Unmarshal([]byte(strval), &mdjsonparam); err != nil {
+				errors.NewError(types.ERROR_TYPE_LEXICAL, "Input file not in json format").Throw()
+			}
+			inputConnector["MetadataJSONParameters"] = mdjsonparam
+		}
+	}
+
+	// validate the input file
+	libErr := lib.Validate("lib/validator/schema.json", inputConnector)
 	if libErr != nil {
 		libErr.Throw()
 	}
