@@ -1,7 +1,7 @@
 package errors
 
 import (
-	"PAValidator/lib/types"
+	"ConnectorSchema/lib/types"
 	"fmt"
 )
 

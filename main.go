@@ -1,9 +1,9 @@
 package main
 
 import (
-	"PAValidator/lib"
-	"PAValidator/lib/errors"
-	"PAValidator/lib/types"
+	"ConnectorSchema/lib"
+	"ConnectorSchema/lib/errors"
+	"ConnectorSchema/lib/types"
 	"encoding/json"
 	"flag"
 	"io"

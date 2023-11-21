@@ -1,9 +1,9 @@
 package lib
 
 import (
-	"PAValidator/lib/errors"
-	"PAValidator/lib/formats"
-	"PAValidator/lib/types"
+	"ConnectorSchema/lib/errors"
+	"ConnectorSchema/lib/formats"
+	"ConnectorSchema/lib/types"
 
 	"github.com/santhosh-tekuri/jsonschema/v5"
 )

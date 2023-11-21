@@ -1,8 +1,8 @@
 package lib
 
 import (
-	"PAValidator/lib/errors"
-	"PAValidator/lib/types"
+	"ConnectorSchema/lib/errors"
+	"ConnectorSchema/lib/types"
 	"encoding/json"
 	"fmt"
 	"io"

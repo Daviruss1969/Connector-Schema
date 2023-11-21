@@ -1,8 +1,8 @@
-EXECUTABLE_NAME=PAValidator
+EXECUTABLE_NAME=csch
 
 GC = go build
 GFLAGS = -o $(EXECUTABLE_NAME)
-LIBMOD = $(EXECUTABLE_NAME)/lib
+LIBMOD = ConnectorSchema/lib
 TESTDIR = lib/test
 
 all: $(EXECUTABLE_NAME)

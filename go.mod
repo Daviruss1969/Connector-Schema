@@ -1,4 +1,4 @@
-module PAValidator
+module ConnectorSchema
 
 go 1.18
 

@@ -1,7 +1,7 @@
 package formats
 
 import (
-	"PAValidator/lib/types"
+	"ConnectorSchema/lib/types"
 )
 
 var TypeFormat func(interface{}) bool = func(i interface{}) bool {
