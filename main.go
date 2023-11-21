@@ -6,6 +6,7 @@ import (
 	"ConnectorSchema/lib/types"
 	"encoding/json"
 	"flag"
+	"fmt"
 	"io"
 	"os"
 )
@@ -50,4 +51,6 @@ func main() {
 	if libErr != nil {
 		libErr.Throw()
 	}
+
+	fmt.Println("The file \"" + *inputFile + "\" is valid")
 }
