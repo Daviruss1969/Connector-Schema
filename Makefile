@@ -1,4 +1,4 @@
-EXECUTABLE_NAME=csch
+EXECUTABLE_NAME=csch.exe
 
 GC = go build
 GFLAGS = -o $(EXECUTABLE_NAME)

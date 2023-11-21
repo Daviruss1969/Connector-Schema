@@ -199,9 +199,13 @@ Type this command to be sure the installation is correct
    ```sh
    git clone https://github.com/Daviruss1969/Connector-Schema.git
    ```
-2. Build the binary (to be sure the binary will run according to your os)
+2. Go into the directory
+    ```sh 
+    cd Connector-Schema
+    ```
+3. If you are not using linux, you can build the binary (to be sure the binary will run according to your os)
    ```sh
-   go build -o csch
+   go build -o csch.exe
    ```
 
 
@@ -210,11 +214,9 @@ Type this command to be sure the installation is correct
 
 You can now use the Connector Schema 
 ```sh
-./csch -i "inputFilePath"
+./csch.exe -i "inputFilePath"
 ```
 
 You need to give one valid file path.
 
 The file contains the informations about the connector, the field "MetadataJSONParameters" can be parsed or not, the 2 cases will work.
-
-## Examples
