@@ -11,9 +11,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-The Connector Schema validate a given input file according to the specified format of a N1 connector. If the input file is not ok, it will print a message according to the error in order to understand the mistake.
+The Connector Schema validates a given input file according to the specified format of an N1 connector. If the input file is not ok, it will print a message according to the error in order to understand the mistake.
 
-Below the schema that validate the input :
+Below the schema that validates the input :
 
 ```json
 {
@@ -196,13 +196,14 @@ Type this command to be sure the installation is correct
    git clone https://github.com/Daviruss1969/Connector-Schema.git
    ```
 2. Go into the directory
-    ```sh 
+    ```sh
     cd Connector-Schema
     ```
-3. If you are not using linux, you can build the binary (to be sure the binary will run according to your os)
+3. If you are not using Linux, you can build the binary (to be sure the binary will run according to your OS)
    ```sh
    go build -o csch.exe
    ```
+4. Up to you to adding it to your $PATH in order to call it everywhere
 
 
 <!-- USAGE EXAMPLES -->
@@ -215,4 +216,4 @@ You can now use the Connector Schema
 
 You need to give one valid file path.
 
-The file contains the informations about the connector, the field "MetadataJSONParameters" can be parsed or not, the 2 cases will work.
+The file contains the information about the connector, the field "MetadataJSONParameters" can be parsed or not, the 2 cases will work.
