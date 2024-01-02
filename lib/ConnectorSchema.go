@@ -2,7 +2,6 @@ package lib
 
 import (
 	"ConnectorSchema/lib/errors"
-	"ConnectorSchema/lib/formats"
 	"ConnectorSchema/lib/types"
 
 	"github.com/santhosh-tekuri/jsonschema/v5"
@@ -10,10 +9,6 @@ import (
 
 func Validate(schemaPath string, data interface{}) *errors.Error {
 	c := jsonschema.NewCompiler()
-	c.AssertFormat = true
-
-	// add format checkers
-	c.Formats["type-format"] = formats.TypeFormat
 
 	// create schema
 	schema, err := c.Compile(schemaPath)
