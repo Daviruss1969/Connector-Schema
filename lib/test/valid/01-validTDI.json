@@ -192,5 +192,14 @@
             "ActionId": "test",
             "Label": "Test"
         }
+    ],
+    "Resources": [
+        {
+            "Type": "NATS",
+            "Object": "tdi",
+            "Custom_info": {
+                "test": "tdi"
+            }
+        }
     ]
 }
