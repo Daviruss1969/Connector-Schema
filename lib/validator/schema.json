@@ -63,7 +63,7 @@
 					},
 					"Type": {
 						"type": "string",
-						"pattern": "FILE|BOOLEAN|STRING|SET|PASSWORD"
+						"enum": ["FILE","BOOLEAN","STRING","SET","PASSWORD"]
 					},
 					"Custom_info": {
             "type": "object",

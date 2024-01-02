@@ -10,6 +10,7 @@ import (
 
 func Validate(schemaPath string, data interface{}) *errors.Error {
 	c := jsonschema.NewCompiler()
+	c.AssertFormat = true
 
 	// create schema
 	schema, err := c.Compile(schemaPath)

@@ -3,7 +3,7 @@
     "Type": "RFX",
     "Description": "REFLEX dataintegration pipeline",
     "Version": "1.3.0-SNAPSHOT",
-    "RepoUrl": "https://www.test.com",
+    "RepoUrl": "https://com.hardis.rfx.dataintegration.IntegrationPipeline",
     "MainClassName": "MainClassName",
     "JarName": "reflex-rp-dataintegration-1.3.0.jar",
     "SetupJson": "",
