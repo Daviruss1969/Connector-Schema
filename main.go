@@ -35,17 +35,6 @@ func main() {
 		errors.NewError(types.ERROR_TYPE_LEXICAL, "Input file not in json format").Throw()
 	}
 
-	// parse the MetadataJSONParameters field, if it's already parsed, it will just pass this function
-	var mdjsonparam interface{}
-	if val, ok := inputConnector["MetadataJSONParameters"]; ok {
-		if strval, ok := val.(string); ok {
-			if err := json.Unmarshal([]byte(strval), &mdjsonparam); err != nil {
-				errors.NewError(types.ERROR_TYPE_LEXICAL, "Input file not in json format").Throw()
-			}
-			inputConnector["MetadataJSONParameters"] = mdjsonparam
-		}
-	}
-
 	// validate the input file
 	libErr := lib.Validate("lib/validator/schema.json", inputConnector)
 	if libErr != nil {
