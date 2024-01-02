@@ -3,46 +3,46 @@
     "Type": "RFX",
     "Description": "REFLEX dataintegration pipeline",
     "Version": "1.3.0-SNAPSHOT",
-    "RepoUrl": "",
-    "MainClassName": "com.hardis.reflexcs.dataintegration.IntegrationPipeline",
-    "JarName": "reflex-rp-dataintegration-1.3.0-SNAPSHOT.jar",
+    "RepoUrl": "https://www.test.com",
+    "MainClassName": "MainClassName",
+    "JarName": "reflex-rp-dataintegration-1.3.0.jar",
     "SetupJson": "",
-    "DistributionName": "reflex-rp-dataintegration",
+    "DistributionName": "reflex-rp-dataintegration-0.0.0",
     "MetadataJSONParameters": [
         {
-            "name": "partnerAppCredsB64",
-            "label": "PartnerApplicationcredentials(.json)",
-            "help_text": "PartnerApplicationcredentialsfile",
-            "mandatory": true,
-            "group_id": "ReflexPlatform",
-            "order_id": 10,
-            "type": "FILE",
-            "custom_info": {
+            "Name": "partnerAppCredsB64",
+            "Label": "PartnerApplicationcredentials(.json)",
+            "Help_text": "PartnerApplicationcredentialsfile",
+            "Mandatory": true,
+            "Group_id": "ReflexPlatform",
+            "Order_id": 10,
+            "Type": "FILE",
+            "Custom_info": {
                 "$suffix": ".json"
             }
         },
         {
-            "name": "rfxConfigStartedFlag",
-            "label": "StartReflexconfigurationpipeline",
-            "help_text": "StartReflexconfigurationpipeline",
-            "mandatory": false,
-            "group_id": "ReflexPlatform",
-            "order_id": 12,
-            "type": "BOOLEAN",
-            "custom_info": {
+            "Name": "rfxConfigStartedFlag",
+            "Label": "StartReflexconfigurationpipeline",
+            "Help_text": "StartReflexconfigurationpipeline",
+            "Mandatory": false,
+            "Group_id": "ReflexPlatform",
+            "Order_id": 12,
+            "Type": "BOOLEAN",
+            "Custom_info": {
                 "$default_value": "true"
             }
         },
         {
-            "name": "startPipeline",
-            "label": "Choosedataflowstostart",
-            "help_text": "Choosedataflowstostart",
-            "mandatory": false,
-            "group_id": "ReflexPlatform",
-            "order_id": 13,
-            "type": "SET",
-            "custom_info": {
-                "$settype": "multiple",
+            "Name": "startPipeline",
+            "Label": "Choosedataflowstostart",
+            "Help_text": "Choosedataflowstostart",
+            "Mandatory": false,
+            "Group_id": "ReflexPlatform",
+            "Order_id": 13,
+            "Type": "SET",
+            "Custom_info": {
+                "$setType": "multiple",
                 "$default_value": "all",
                 "hsaitm": "Items",
                 "hsrpro": "Preparationorder",
@@ -63,256 +63,256 @@
             }
         },
         {
-            "name": "openSearchEnabled",
-            "label": "Enable OpenSearch",
-            "help_text": "Enable OpenSearch",
-            "mandatory": false,
-            "group_id": "ReflexPlatform",
-            "order_id": 14,
-            "type": "BOOLEAN",
-            "custom_info": {
+            "Name": "openSearchEnabled",
+            "Label": "Enable OpenSearch",
+            "Help_text": "Enable OpenSearch",
+            "Mandatory": false,
+            "Group_id": "ReflexPlatform",
+            "Order_id": 14,
+            "Type": "BOOLEAN",
+            "Custom_info": {
                 "$default_value": "true"
             }
         },
         {
-            "name": "itemRXFtoRPFTLFile",
-            "label": "itemRXFtoRPFTLFile",
-            "help_text": "itemRXFtoRPFTLFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 100,
-            "type": "STRING"
+            "Name": "itemRXFtoRPFTLFile",
+            "Label": "itemRXFtoRPFTLFile",
+            "Help_text": "itemRXFtoRPFTLFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 100,
+            "Type": "STRING"
         },
         {
-            "name": "orderRXFtoRPFTLFile",
-            "label": "orderRXFtoRPFTLFile",
-            "help_text": "orderRXFtoRPFTLFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 101,
-            "type": "STRING"
+            "Name": "orderRXFtoRPFTLFile",
+            "Label": "orderRXFtoRPFTLFile",
+            "Help_text": "orderRXFtoRPFTLFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 101,
+            "Type": "STRING"
         },
         {
-            "name": "consigneeRXFtoRPFTLFile",
-            "label": "consigneeRXFtoRPFTLFile",
-            "help_text": "consigneeRXFtoRPFTLFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 102,
-            "type": "STRING"
+            "Name": "consigneeRXFtoRPFTLFile",
+            "Label": "consigneeRXFtoRPFTLFile",
+            "Help_text": "consigneeRXFtoRPFTLFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 102,
+            "Type": "STRING"
         },
         {
-            "name": "supplierRXFtoRPFTLFile",
-            "label": "supplierRXFtoRPFTLFile",
-            "help_text": "supplierRXFtoRPFTLFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 103,
-            "type": "STRING"
+            "Name": "supplierRXFtoRPFTLFile",
+            "Label": "supplierRXFtoRPFTLFile",
+            "Help_text": "supplierRXFtoRPFTLFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 103,
+            "Type": "STRING"
         },
         {
-            "name": "carrierRXFtoRPFTLFile",
-            "label": "carrierRXFtoRPFTLFile",
-            "help_text": "carrierRXFtoRPFTLFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 104,
-            "type": "STRING"
+            "Name": "carrierRXFtoRPFTLFile",
+            "Label": "carrierRXFtoRPFTLFile",
+            "Help_text": "carrierRXFtoRPFTLFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 104,
+            "Type": "STRING"
         },
         {
-            "name": "stockSnapshotRXFtoRPFTLFile",
-            "label": "stockSnapshotRXFtoRPFTLFile",
-            "help_text": "stockSnapshotRXFtoRPFTLFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 105,
-            "type": "STRING"
+            "Name": "stockSnapshotRXFtoRPFTLFile",
+            "Label": "stockSnapshotRXFtoRPFTLFile",
+            "Help_text": "stockSnapshotRXFtoRPFTLFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 105,
+            "Type": "STRING"
         },
         {
-            "name": "stockMoveRXFtoRPFTLFile",
-            "label": "stockMoveRXFtoRPFTLFile",
-            "help_text": "stockMoveRXFtoRPFTLFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 106,
-            "type": "STRING"
+            "Name": "stockMoveRXFtoRPFTLFile",
+            "Label": "stockMoveRXFtoRPFTLFile",
+            "Help_text": "stockMoveRXFtoRPFTLFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 106,
+            "Type": "STRING"
         },
         {
-            "name": "preparationRFXtoRPFTLFile",
-            "label": "preparationRFXtoRPFTLFile",
-            "help_text": "preparationRFXtoRPFTLFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 107,
-            "type": "STRING"
+            "Name": "preparationRFXtoRPFTLFile",
+            "Label": "preparationRFXtoRPFTLFile",
+            "Help_text": "preparationRFXtoRPFTLFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 107,
+            "Type": "STRING"
         },
         {
-            "name": "receiptRFXtoRPFTLFile",
-            "label": "receiptRFXtoRPFTLFile",
-            "help_text": "receiptRFXtoRPFTLFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 108,
-            "type": "STRING"
+            "Name": "receiptRFXtoRPFTLFile",
+            "Label": "receiptRFXtoRPFTLFile",
+            "Help_text": "receiptRFXtoRPFTLFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 108,
+            "Type": "STRING"
         },
         {
-            "name": "preparationStatusRFXtoRPFTLFile",
-            "label": "preparationStatusRFXtoRPFTLFile",
-            "help_text": "preparationStatusRFXtoRPFTLFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 109,
-            "type": "STRING"
+            "Name": "preparationStatusRFXtoRPFTLFile",
+            "Label": "preparationStatusRFXtoRPFTLFile",
+            "Help_text": "preparationStatusRFXtoRPFTLFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 109,
+            "Type": "STRING"
         },
         {
-            "name": "logisticalVariantRFXtoRPFTLFile",
-            "label": "logisticalVariantRFXtoRPFTLFile",
-            "help_text": "logisticalVariantRFXtoRPFTLFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 110,
-            "type": "STRING"
+            "Name": "logisticalVariantRFXtoRPFTLFile",
+            "Label": "logisticalVariantRFXtoRPFTLFile",
+            "Help_text": "logisticalVariantRFXtoRPFTLFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 110,
+            "Type": "STRING"
         },
         {
-            "name": "executionflowEventRPtoRFXFTLFile",
-            "label": "executionflowEventRPtoRFXFTLFile",
-            "help_text": "executionflowEventRPtoRFXFTLFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 111,
-            "type": "STRING"
+            "Name": "executionflowEventRPtoRFXFTLFile",
+            "Label": "executionflowEventRPtoRFXFTLFile",
+            "Help_text": "executionflowEventRPtoRFXFTLFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 111,
+            "Type": "STRING"
         },
         {
-            "name": "responseRESTRFXtoRPFTLFile",
-            "label": "responseRESTRFXtoRPFTLFile",
-            "help_text": "responseRESTRFXtoRPFTLFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 112,
-            "type": "STRING"
+            "Name": "responseRESTRFXtoRPFTLFile",
+            "Label": "responseRESTRFXtoRPFTLFile",
+            "Help_text": "responseRESTRFXtoRPFTLFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 112,
+            "Type": "STRING"
         },
         {
-            "name": "depotRFXtoRPFTLFile",
-            "label": "depotRFXtoRPFTLFile",
-            "help_text": "depotRFXtoRPFTLFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 114,
-            "type": "STRING"
+            "Name": "depotRFXtoRPFTLFile",
+            "Label": "depotRFXtoRPFTLFile",
+            "Help_text": "depotRFXtoRPFTLFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 114,
+            "Type": "STRING"
         },
         {
-            "name": "rfxConfigurationtoRPFTLFile",
-            "label": "rfxConfigurationtoRPFTLFile",
-            "help_text": "rfxConfigurationtoRPFTLFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 115,
-            "type": "STRING"
+            "Name": "rfxConfigurationtoRPFTLFile",
+            "Label": "rfxConfigurationtoRPFTLFile",
+            "Help_text": "rfxConfigurationtoRPFTLFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 115,
+            "Type": "STRING"
         },
         {
-            "name": "hfRpConfigFile",
-            "label": "hfRpConfigFile",
-            "help_text": "hfRpConfigFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 116,
-            "type": "STRING"
+            "Name": "hfRpConfigFile",
+            "Label": "hfRpConfigFile",
+            "Help_text": "hfRpConfigFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 116,
+            "Type": "STRING"
         },
         {
-            "name": "hfLvTypeListtoRPFTLFile",
-            "label": "hfLvTypeListtoRPFTLFile",
-            "help_text": "hfLvTypeListtoRPFTLFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 117,
-            "type": "STRING"
+            "Name": "hfLvTypeListtoRPFTLFile",
+            "Label": "hfLvTypeListtoRPFTLFile",
+            "Help_text": "hfLvTypeListtoRPFTLFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 117,
+            "Type": "STRING"
         },
         {
-            "name": "hfLvTypeListFile",
-            "label": "hfLvTypeListFile",
-            "help_text": "hfLvTypeListFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 118,
-            "type": "STRING"
+            "Name": "hfLvTypeListFile",
+            "Label": "hfLvTypeListFile",
+            "Help_text": "hfLvTypeListFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 118,
+            "Type": "STRING"
         },
         {
-            "name": "hfExpGrpListtoRPFTLFile",
-            "label": "hfExpGrpListtoRPFTLFile",
-            "help_text": "hfExpGrpListtoRPFTLFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 119,
-            "type": "STRING"
+            "Name": "hfExpGrpListtoRPFTLFile",
+            "Label": "hfExpGrpListtoRPFTLFile",
+            "Help_text": "hfExpGrpListtoRPFTLFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 119,
+            "Type": "STRING"
         },
         {
-            "name": "hfExpGrpListFile",
-            "label": "hfExpGrpListFile",
-            "help_text": "hfExpGrpListFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 120,
-            "type": "STRING"
+            "Name": "hfExpGrpListFile",
+            "Label": "hfExpGrpListFile",
+            "Help_text": "hfExpGrpListFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 120,
+            "Type": "STRING"
         },
         {
-            "name": "hfGradetoRPFTLFile",
-            "label": "hfGradetoRPFTLFile",
-            "help_text": "hfGradetoRPFTLFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 121,
-            "type": "STRING"
+            "Name": "hfGradetoRPFTLFile",
+            "Label": "hfGradetoRPFTLFile",
+            "Help_text": "hfGradetoRPFTLFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 121,
+            "Type": "STRING"
         },
         {
-            "name": "hfOwnertoRPFTLFile",
-            "label": "hfOwnertoRPFTLFile",
-            "help_text": "hfOwnertoRPFTLFile",
-            "mandatory": false,
-            "group_id": "MappingFiles",
-            "order_id": 122,
-            "type": "STRING"
+            "Name": "hfOwnertoRPFTLFile",
+            "Label": "hfOwnertoRPFTLFile",
+            "Help_text": "hfOwnertoRPFTLFile",
+            "Mandatory": false,
+            "Group_id": "MappingFiles",
+            "Order_id": 122,
+            "Type": "STRING"
         },
         {
-            "name": "gitRemoteUrl",
-            "label": "GitRepositoryUrl",
-            "help_text": "GitRepositoryUrl",
-            "mandatory": false,
-            "group_id": "Git",
-            "order_id": 201,
-            "type": "STRING"
+            "Name": "gitRemoteUrl",
+            "Label": "GitRepositoryUrl",
+            "Help_text": "GitRepositoryUrl",
+            "Mandatory": false,
+            "Group_id": "Git",
+            "Order_id": 201,
+            "Type": "STRING"
         },
         {
-            "name": "gitUserName",
-            "label": "Username",
-            "help_text": "Username",
-            "mandatory": false,
-            "group_id": "Git",
-            "order_id": 203,
-            "type": "STRING",
-            "custom_info": {
+            "Name": "gitUserName",
+            "Label": "UserName",
+            "Help_text": "UserName",
+            "Mandatory": false,
+            "Group_id": "Git",
+            "Order_id": 203,
+            "Type": "STRING",
+            "Custom_info": {
                 "$regex": ".*"
             }
         },
         {
-            "name": "gitPassword",
-            "label": "Password",
-            "help_text": "Password",
-            "mandatory": false,
-            "group_id": "Git",
-            "order_id": 204,
-            "type": "PASSWORD",
-            "custom_info": {
+            "Name": "gitPassword",
+            "Label": "Password",
+            "Help_text": "Password",
+            "Mandatory": false,
+            "Group_id": "Git",
+            "Order_id": 204,
+            "Type": "PASSWORD",
+            "Custom_info": {
                 "$regex": ".*"
             }
         },
         {
-            "name": "gitBranchName",
-            "label": "Branch",
-            "help_text": "Branch",
-            "mandatory": false,
-            "group_id": "Git",
-            "order_id": 201,
-            "type": "STRING"
+            "Name": "gitBranchName",
+            "Label": "Branch",
+            "Help_text": "Branch",
+            "Mandatory": false,
+            "Group_id": "Git",
+            "Order_id": 201,
+            "Type": "STRING"
         }
     ],
     "Permissions": [
@@ -793,6 +793,15 @@
                     "TransientPermissions": []
                 }
             ]
+        }
+    ],
+    "Actions": [
+        {
+            "ActionId": "$start",
+            "Label": "Démarer"
+        },
+        {
+            "ActionId": "$stop"
         }
     ]
 }

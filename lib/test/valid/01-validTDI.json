@@ -3,83 +3,89 @@
     "Type": "TDI",
     "Description": "TDI dataintegration pipeline",
     "Version": "2.0.2",
-    "RepoUrl": "",
-    "MainClassName": "com.hardis.tdi.dataintegration.IntegrationPipeline",
+    "RepoUrl": "https://com.hardis.tdi.dataintegration.IntegrationPipeline",
+    "MainClassName": "MainClassName",
     "JarName": "tdi-rp-dataintegration-2.0.2.jar",
     "SetupJson": "",
-    "DistributionName": "tdi-rp-dataintegration",
+    "DistributionName": "tdi-rp-dataintegration-0.0.0",
     "MetadataJSONParameters": [
         {
-            "name": "partnerAppCredsB64",
-            "label": "Partner Application credentials (.json)",
-            "help_text": "Partner Application credentials file",
-            "mandatory": true,
-            "group_id": "Reflex Platform",
-            "order_id": 10,
-            "type": "FILE"
+            "Name": "partnerAppCredsB64",
+            "Label": "Partner Application credentials (.json)",
+            "Help_text": "Partner Application credentials file",
+            "Mandatory": true,
+            "Group_id": "Reflex Platform",
+            "Order_id": 10,
+            "Type": "FILE",
+            "Custom_info": {
+                "$suffix": ".json"
+            }
         },
         {
-            "name": "openSearchEnabled",
-            "label": "Enable OpenSearch",
-            "help_text": "Enable OpenSearch",
-            "mandatory": false,
-            "group_id": "Reflex Platform",
-            "order_id": 14,
-            "type": "BOOLEAN"
+            "Name": "openSearchEnabled",
+            "Label": "Enable OpenSearch",
+            "Help_text": "Enable OpenSearch",
+            "Mandatory": false,
+            "Group_id": "Reflex Platform",
+            "Order_id": 14,
+            "Type": "BOOLEAN",
+            "Custom_info": {
+                "$default_value": "true"
+            }
         },
         {
-            "name": "HUTDItoRPFTLFile",
-            "label": "TDItoRPFTLFile",
-            "help_text": "TDItoRPFTLFile",
-            "mandatory": false,
-            "group_id": "Reflex Platform",
-            "order_id": 15,
-            "type": "STRING"
+            "Name": "HUTDItoRPFTLFile",
+            "Label": "TDItoRPFTLFile",
+            "Help_text": "TDItoRPFTLFile",
+            "Mandatory": false,
+            "Group_id": "Reflex Platform",
+            "Order_id": 15,
+            "Type": "STRING"
         },
         {
-            "name": "senderTag",
-            "label": "senderTag",
-            "help_text": "senderTag",
-            "mandatory": true,
-            "group_id": "Reflex Platform",
-            "order_id": 16,
-            "type": "STRING"
+            "Name": "senderTag",
+            "Label": "senderTag",
+            "Help_text": "senderTag",
+            "Mandatory": true,
+            "Group_id": "Reflex Platform",
+            "Order_id": 16,
+            "Type": "STRING"
         },
         {
-            "name": "gitRemoteUrl",
-            "label": "GitRepositoryUrl",
-            "help_text": "GitRepositoryUrl",
-            "mandatory": false,
-            "group_id": "Git",
-            "order_id": 201,
-            "type": "STRING"
+            "Name": "gitRemoteUrl",
+            "Label": "GitRepositoryUrl",
+            "Help_text": "GitRepositoryUrl",
+            "Mandatory": false,
+            "Group_id": "Git",
+            "Order_id": 201,
+            "Type": "STRING"
         },
         {
-            "name": "gitUserName",
-            "label": "Username",
-            "help_text": "Username",
-            "mandatory": false,
-            "group_id": "Git",
-            "order_id": 203,
-            "type": "STRING"
+            "Name": "gitUserName",
+            "Label": "UserName",
+            "Help_text": "UserName",
+            "Mandatory": false,
+            "Group_id": "Git",
+            "Order_id": 203,
+            "Type": "STRING"
         },
         {
-            "name": "gitPassword",
-            "label": "Password",
-            "help_text": "Password",
-            "mandatory": false,
-            "group_id": "Git",
-            "order_id": 204,
-            "type": "PASSWORD"
+            "Name": "gitPassword",
+            "Label": "Password",
+            "Help_text": "Password",
+            "Mandatory": false,
+            "Group_id": "Git",
+            "Order_id": 204,
+            "Type": "PASSWORD"
         },
         {
-            "name": "gitBranchName",
-            "label": "Branch",
-            "help_text": "Branch",
-            "mandatory": false,
-            "group_id": "Git",
-            "order_id": 202,
-            "type": "STRING"
+            "Name": "gitBranchName",
+            "Label": "Branch",
+            "Help_text": "Branch",
+            "Mandatory": false,
+            "Group_id": "Git",
+            "Order_id": 202,
+            "Type": "STRING"
         }
     ],
     "Permissions": [
@@ -172,6 +178,19 @@
                     "TransientPermissions": []
                 }
             ]
+        }
+    ],
+    "Actions": [
+        {
+            "ActionId": "$start",
+            "Label": "Démarer"
+        },
+        {
+            "ActionId": "$stop"
+        },
+        {
+            "ActionId": "test",
+            "Label": "Test"
         }
     ]
 }
