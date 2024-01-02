@@ -17,159 +17,171 @@ Below the schema that validates the input :
 
 ```json
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://gitlab.hardis-group.com/r-d-technique/reflex-platform/deployment/platform-setup/-/raw/develop/100.upgrade-release/connectors/connector-RFX-latest.json?ref_type=heads",
-    "title": "Connector",
-    "description": "A product from Reflex Platform solution",
-    "type": "object",
-    "properties": {
-        "Name": {
-            "description": "Name of the connector",
-            "type": "string"
-        },
-        "Type": {
-            "description": "Type of the connector",
-            "type": "string"
-        },
-        "Description": {
-            "description": "Description of the connector",
-            "type": "string"
-        },
-        "Version": {
-            "description": "Version of the connector",
-            "type": "string"
-        },
-        "RepoUrl": {
-            "description": "Repository url of the connector",
-            "type": "string"
-        },
-        "MainClassName": {
-            "description": "Main class name of the connector",
-            "type": "string"
-        },
-        "JarName": {
-            "description": "",
-            "type": "string"
-        },
-        "SetupJson": {
-            "description": "",
-            "type": "string"
-        },
-        "DistributionName": {
-            "description": "Distribution name of the connector",
-            "type": "string"
-        },
-        "MetadataJSONParameters": {
-            "description": "Parameters of the connector",
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "description": "Name of the parameter",
-                        "type": "string"
-                    },
-                    "label": {
-                        "description": "Label of the parameter",
-                        "type": "string"
-                    },
-                    "help_text": {
-                        "description": "Description of the parameter",
-                        "type": "string"
-                    },
-                    "mandatory": {
-                        "description": "Describe if the parameter is mandatory",
-                        "type": "boolean"
-                    },
-                    "group_id": {
-                        "description": "",
-                        "type": "string"
-                    },
-                    "order_id": {
-                        "description": "",
-                        "type": "number",
-                        "exclusiveMinimum": 0
-                    },
-                    "type": {
-                        "description": "Type of the parameter",
-                        "type": "string",
-                        "format": "type-format"
-                    },
-                    "custom_info": {
-                        "description": "More informations about the parameter",
-                        "type": "object",
-                        "properties": {
-                            "$suffix": {
-                                "description": "The extention of the file for FILE format",
-                                "type": "string"
-                            },
-                            "$regex": {
-                                "description": "A regex to match for string format",
-                                "type": "string",
-                                "format": "regex"
-                            },
-                            "$default_value": {
-                                "description": "A default value for BOOLEAN or SET formats",
-                                "type": "string",
-                                "enum": ["true", "false", "all"]
-                            },
-                            "$settype": {
-                                "description": "The type of the set (multiple or single)",
-                                "type": "string",
-                                "enum": ["multiple", "single"]
-                            }
-                        }
-                    }
-                },
-                "required": ["name", "label", "help_text", "mandatory", "group_id", "order_id", "type"]
-            }
-        },
-        "Permissions": {
-            "description": "Permissions of the connector",
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "Client": {
-                        "description": "Target of the permission",
-                        "type": "string"
-                    },
-                    "Scopes": {
-                        "description": "Scopes of the permission",
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "Service": {
-                                    "description": "Service of the scope",
-                                    "type": "string"
-                                },
-                                "Method": {
-                                    "description": "Method of the scope",
-                                    "type": "string"
-                                },
-                                "RscType": {
-                                    "description": "Type of the scope (projet, orga, connection...)",
-                                    "type": "string"
-                                },
-                                "PlatformReserved": {
-                                    "description": "Describe if the platform is reserved",
-                                    "type": "boolean"
-                                },
-                                "TransientPermissions": {
-                                    "description": "",
-                                    "type": "array"
-                                }     
-                            },
-                            "required": ["Service", "Method", "RscType", "PlatformReserved", "TransientPermissions"]
-                        }
-                    }
-                },
-                "required": ["Client", "Scopes"]
-            }
-        }
-    },
-    "required": [ "Name", "Type", "Description", "Version", "RepoUrl", "MainClassName", "JarName", "SetupJson", "DistributionName", "MetadataJSONParameters"]
+	"type": "object",
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"pattern": "#",
+	"properties": {
+		"Name": {
+			"type": "string",
+			"pattern": "[A-Za-z]*"
+		},
+		"Type": {
+			"type": "string",
+			"pattern": "[A-Z]*"
+		},
+		"Description": {
+			"type": "string"
+		},
+		"Version": {
+			"type": "string",
+			"pattern": "[0-9]+\\.[0-9]*\\.[0-9]*"
+		},
+		"RepoUrl": {
+			"type": "string",
+			"pattern": "https?://(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)"
+		},
+		"MainClassName": {
+			"type": "string",
+			"pattern": "MainClassName"
+		},
+		"JarName": {
+			"type": "string",
+			"pattern": "([a-zA-Z\\d]*-)+[0-9]+\\.[0-9]*\\.[0-9]*\\.jar"
+		},
+		"SetupJson": {
+			"type": "string"
+		},
+		"DistributionName": {
+			"type": "string",
+			"pattern": "([a-zA-Z\\d]*-)+[0-9]+\\.[0-9]*\\.[0-9]*"
+		},
+		"MetadataJSONParameters": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"Name": {
+						"type": "string"
+					},
+					"Label": {
+						"type": "string"
+					},
+					"Help_text": {
+						"type": "string"
+					},
+					"Mandatory": {
+						"type": "boolean"
+					},
+					"Group_id": {
+						"type": "string"
+					},
+					"Order_id": {
+						"type": "integer",
+						"pattern": "[0-9]*"
+					},
+					"Type": {
+						"type": "string",
+						"pattern": "FILE|BOOLEAN|STRING|SET|PASSWORD"
+					},
+					"Custom_info": {
+            "type": "object",
+						"properties": {
+							"$suffix": {
+									"type": "string"
+							},
+							"$regex": {
+									"type": "string",
+									"format": "regex"
+							},
+							"$default_value": {
+									"type": "string",
+									"enum": ["true", "false", "all"]
+							},
+							"$settype": {
+									"type": "string",
+									"enum": ["multiple", "single"]
+							}
+						}
+					}
+				},
+        "required": ["Name", "Label", "Help_text", "Mandatory", "Group_id", "Order_id", "Type"]
+			}
+		},
+		"Permissions": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"Client": {
+						"type": "string",
+						"pattern": "[A-Za-z]+[A-Za-z0-9\\-]*"
+					},
+					"Scopes": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"Service": {
+									"type": "string",
+									"pattern": "[A-Za-z]+[A-Za-z0-9\\-]*"
+								},
+								"Method": {
+									"type": "string",
+									"pattern": "[A-Za-z]+[A-Za-z0-9\\-]*"
+								},
+								"RscType": {
+									"type": "string",
+									"pattern": "Project|..."
+								},
+								"PlatformReserved": {
+									"type": "boolean"
+								}
+							},
+              "required": ["Service", "Method", "RscType", "PlatformReserved"]
+						}
+					}
+				},
+        "required": ["Client", "Scopes"]
+			}
+		},
+		"Actions": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"ActionId": {
+						"type": "string",
+						"pattern": "$start|$stop|$delete|$create|[a-z]+[a-z0-9\\-]*"
+					},
+					"Label": {
+						"type": "string",
+						"pattern": "[A-Za-z0-9]+[A-Za-z0-9\\-]*"
+					}
+				},
+        "required": ["ActionId"]
+			}
+		},
+		"Resources": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"Type": {
+						"type": "string",
+						"enum": ["NATS","FLINK","KC"]
+					},
+					"Object": {
+						"type": "string"
+					},
+					"CustomInfo": {
+						"type": "object"
+					}
+				},
+        "required": ["Type", "Object"]
+			}
+		}
+	},
+  "required": ["Name", "Type", "Description", "Version", "MainClassName", "JarName", "MetadataJSONParameters", "Permissions", "Actions"]
 }
 ```
 

@@ -156,19 +156,7 @@
 						"type": "string"
 					},
 					"CustomInfo": {
-						"type": "array",
-						"items": {
-							"type": "object",
-							"properties": {
-								"key": {
-									"type": "string"
-								},
-								"value": {
-									"type": "string"
-								}
-							},
-              "required": ["Key", "Value"]
-						}
+						"type": "object"
 					}
 				},
         "required": ["Type", "Object"]
