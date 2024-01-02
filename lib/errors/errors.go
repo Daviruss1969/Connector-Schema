@@ -3,6 +3,8 @@ package errors
 import (
 	"ConnectorSchema/lib/types"
 	"fmt"
+
+	"github.com/fatih/color"
 )
 
 type Error struct {
@@ -18,7 +20,8 @@ func NewError(errType types.ErrorType, message string) *Error {
 }
 
 func (e *Error) Error() string {
-	return fmt.Sprintf("%s: %s", e.Type.String(), e.Message)
+	red := color.New(color.FgRed).SprintFunc()
+	return fmt.Sprintf("%s: %s", red(e.Type.String()), e.Message)
 }
 
 func (e *Error) Print() {

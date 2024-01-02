@@ -9,6 +9,8 @@ import (
 	"fmt"
 	"io"
 	"os"
+
+	"github.com/fatih/color"
 )
 
 func main() {
@@ -41,5 +43,7 @@ func main() {
 		libErr.Throw()
 	}
 
-	fmt.Println("The file \"" + *inputFile + "\" is valid")
+	green := color.New(color.FgGreen).SprintFunc()
+	text := "The file " + green(*inputFile) + " is valid \n"
+	fmt.Print(text)
 }
