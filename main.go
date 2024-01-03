@@ -38,7 +38,7 @@ func main() {
 	}
 
 	// validate the input file
-	libErr := lib.Validate("lib/validator/schema.json", inputConnector)
+	libErr := lib.Validate(inputConnector, "")
 	if libErr != nil {
 		libErr.Throw()
 	}

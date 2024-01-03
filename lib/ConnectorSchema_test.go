@@ -10,7 +10,7 @@ import (
 	"testing"
 )
 
-var schemaPath string = "validator/schema.json"
+var schemaTestPath string = "validator/schema.json"
 
 func readInputFile(path string) (interface{}, *errors.Error) {
 	inputF, err := os.Open(path)
@@ -57,7 +57,7 @@ func TestInvalid02emptyJSON(t *testing.T) {
 		t.Fail()
 	}
 
-	libErr := Validate(schemaPath, data)
+	libErr := Validate(data, schemaTestPath)
 	if libErr == nil {
 		t.Fail()
 	} else {
@@ -75,7 +75,7 @@ func TestInvalid03missingTopProp(t *testing.T) {
 		t.Fail()
 	}
 
-	libErr := Validate(schemaPath, data)
+	libErr := Validate(data, schemaTestPath)
 	if libErr == nil {
 		t.Fail()
 	} else {
@@ -93,7 +93,7 @@ func TestInvalid04wrongTypeTopProp(t *testing.T) {
 		t.Fail()
 	}
 
-	libErr := Validate(schemaPath, data)
+	libErr := Validate(data, schemaTestPath)
 	if libErr == nil {
 		t.Fail()
 	} else {
@@ -111,7 +111,7 @@ func TestInvalid05missingNestedProp(t *testing.T) {
 		t.Fail()
 	}
 
-	libErr := Validate(schemaPath, data)
+	libErr := Validate(data, schemaTestPath)
 	if libErr == nil {
 		t.Fail()
 	} else {
@@ -129,7 +129,7 @@ func TestInvalid06wrongTypeNestedProp(t *testing.T) {
 		t.Fail()
 	}
 
-	libErr := Validate(schemaPath, data)
+	libErr := Validate(data, schemaTestPath)
 	if libErr == nil {
 		t.Fail()
 	} else {
@@ -147,7 +147,7 @@ func TestInvalid07invalidTypeFormat(t *testing.T) {
 		t.Fail()
 	}
 
-	libErr := Validate(schemaPath, data)
+	libErr := Validate(data, schemaTestPath)
 	if libErr == nil {
 		t.Fail()
 	} else {
@@ -165,7 +165,7 @@ func TestInvalid08invalidMinimumOID(t *testing.T) {
 		t.Fail()
 	}
 
-	libErr := Validate(schemaPath, data)
+	libErr := Validate(data, schemaTestPath)
 	if libErr == nil {
 		t.Fail()
 	} else {
@@ -175,7 +175,7 @@ func TestInvalid08invalidMinimumOID(t *testing.T) {
 	}
 }
 
-func TestInvalid09invalidSchemaPath(t *testing.T) {
+func TestInvalid09invalidschemaTestPath(t *testing.T) {
 	var inputPath string = "test/invalid/09-invalidSchemaPath.json"
 
 	data, err := readInputFile(inputPath)
@@ -183,7 +183,7 @@ func TestInvalid09invalidSchemaPath(t *testing.T) {
 		t.Fail()
 	}
 
-	libErr := Validate("invalid/schemaPath", data)
+	libErr := Validate(data, "invalid/schemaTestPath")
 	if libErr == nil {
 		t.Fail()
 	} else {
@@ -194,7 +194,7 @@ func TestInvalid09invalidSchemaPath(t *testing.T) {
 }
 
 func TestInvalid10invalidSchemaFile(t *testing.T) {
-	libErr := Validate("test/invalid/10-invalidSchemaFile.jsd", nil)
+	libErr := Validate(nil, "test/invalid/10-invalidSchemaFile.jsd")
 	if libErr == nil {
 		t.Fail()
 	} else {
@@ -212,7 +212,7 @@ func TestInvalid11invalidCSTINFO(t *testing.T) {
 		t.Fail()
 	}
 
-	libErr := Validate(schemaPath, data)
+	libErr := Validate(data, schemaTestPath)
 	if libErr == nil {
 		t.Fail()
 	} else {
@@ -230,7 +230,7 @@ func TestInvalid12invalidCSTINFOformat(t *testing.T) {
 		t.Fail()
 	}
 
-	libErr := Validate(schemaPath, data)
+	libErr := Validate(data, schemaTestPath)
 	if libErr == nil {
 		t.Fail()
 	} else {
@@ -248,7 +248,7 @@ func TestInvalid13invalidCSTINFOenum(t *testing.T) {
 		t.Fail()
 	}
 
-	libErr := Validate(schemaPath, data)
+	libErr := Validate(data, schemaTestPath)
 	if libErr == nil {
 		t.Fail()
 	} else {
@@ -266,7 +266,7 @@ func TestValid00validRFX(t *testing.T) {
 		t.Fail()
 	}
 
-	libErr := Validate(schemaPath, data)
+	libErr := Validate(data, schemaTestPath)
 	if libErr != nil {
 		t.Fail()
 	}
@@ -280,7 +280,7 @@ func TestValid01validTDI(t *testing.T) {
 		t.Fail()
 	}
 
-	libErr := Validate(schemaPath, data)
+	libErr := Validate(data, schemaTestPath)
 	if libErr != nil {
 		t.Fail()
 	}

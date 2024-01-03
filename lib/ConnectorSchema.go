@@ -8,7 +8,15 @@ import (
 	"github.com/santhosh-tekuri/jsonschema/v5"
 )
 
-func Validate(schemaPath string, data interface{}) *errors.Error {
+const defaultSchemaPath = "lib/validator/schema.json"
+
+func Validate(data interface{}, schemaPath string) *errors.Error {
+	// handle default value
+	if schemaPath == "" {
+		schemaPath = defaultSchemaPath
+	}
+
+	// create json compiler
 	c := jsonschema.NewCompiler()
 	c.AssertFormat = true
 
