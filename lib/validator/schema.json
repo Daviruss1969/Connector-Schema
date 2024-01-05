@@ -66,23 +66,19 @@
 						"enum": ["FILE","BOOLEAN","STRING","SET","PASSWORD"]
 					},
 					"Custom_info": {
-            "type": "object",
-						"properties": {
-							"$suffix": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"Key": {
+									"type": "string",
+									"pattern": "\\${0,1}[A-Za-z]+[A-Za-z0-9\\-]*"
+								},
+								"Value": {
 									"type": "string"
+								}
 							},
-							"$regex": {
-									"type": "string",
-									"format": "regex"
-							},
-							"$default_value": {
-									"type": "string",
-									"enum": ["true", "false", "all"]
-							},
-							"$settype": {
-									"type": "string",
-									"enum": ["multiple", "single"]
-							}
+							"required": ["Key", "Value"]
 						}
 					}
 				},
@@ -156,7 +152,20 @@
 						"type": "string"
 					},
 					"CustomInfo": {
-						"type": "object"
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"Key": {
+									"type": "string",
+									"pattern": "\\${0,1}[A-Za-z]+[A-Za-z0-9\\-]*"
+								},
+								"Value": {
+									"type": "string"
+								}
+							},
+							"required": ["Key", "Value"]
+						}
 					}
 				},
         "required": ["Type", "Object"]

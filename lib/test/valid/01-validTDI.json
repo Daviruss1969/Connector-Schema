@@ -17,9 +17,12 @@
             "Group_id": "Reflex Platform",
             "Order_id": 10,
             "Type": "FILE",
-            "Custom_info": {
-                "$suffix": ".json"
-            }
+            "Custom_info": [
+                {
+                    "Key": "$suffix",
+                    "Value": ".json"
+                }
+            ]
         },
         {
             "Name": "openSearchEnabled",
@@ -29,9 +32,12 @@
             "Group_id": "Reflex Platform",
             "Order_id": 14,
             "Type": "BOOLEAN",
-            "Custom_info": {
-                "$default_value": "true"
-            }
+            "Custom_info": [
+                {
+                    "Key": "$default_value",
+                    "Value": "true"
+                }
+            ]
         },
         {
             "Name": "HUTDItoRPFTLFile",
@@ -197,9 +203,12 @@
         {
             "Type": "NATS",
             "Object": "tdi",
-            "Custom_info": {
-                "test": "tdi"
-            }
+            "Custom_info": [
+                {
+                    "Key": "test",
+                    "Value": "tdi"
+                }
+            ]
         }
     ]
 }
